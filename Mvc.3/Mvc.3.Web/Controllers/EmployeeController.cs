@@ -14,15 +14,22 @@ namespace Mvc3.Web.Controllers
             this.employeeService = employeeService;
         }
 
+        [HttpGet]
         public ViewResult LongestServing()
         {
-            var employee = employeeService.GetLongestServingEmployee();
-            var model = new EmployeeViewModel
-            {
-                HireDate = employee.HireDate,
-                Name = employee.Name
-            };
+            var model = GetEmployeeModel();
             return View(model);
+        }
+
+        [NonAction]
+        private EmployeeViewModel GetEmployeeModel()
+        {
+            var employee = employeeService.GetLongestServingEmployee();
+            return new EmployeeViewModel
+                       {
+                           HireDate = employee.HireDate,
+                           Name = employee.Name
+                       };
         }
     }
 }
