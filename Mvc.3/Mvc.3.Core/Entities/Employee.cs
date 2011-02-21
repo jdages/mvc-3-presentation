@@ -7,7 +7,6 @@ namespace Mvc3.Core.Entities
 {
     public class Employee 
     {
-        [MustStartWithA(ErrorMessage = "{0} must start with a")]
         public string Name { get; set; }
         public DateTime HireDate { get; set; }
         public DateTime StartDate { get; set; }
