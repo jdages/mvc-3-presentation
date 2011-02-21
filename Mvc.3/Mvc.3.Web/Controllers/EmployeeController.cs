@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using Mvc3.Core.Entities;
 using Mvc3.Core.Services;
 using Mvc3.Web.Models.Employee;
 
@@ -7,29 +8,16 @@ namespace Mvc3.Web.Controllers
 {
     public class EmployeeController : Controller
     {
-        private IEmployeeService employeeService;
-
-        public EmployeeController(IEmployeeService employeeService )
-        {
-            this.employeeService = employeeService;
-        }
-
         [HttpGet]
-        public ViewResult LongestServing()
+        public ViewResult Create()
         {
-            var model = GetEmployeeModel();
-            return View(model);
+            return View();
         }
 
-        [NonAction]
-        private EmployeeViewModel GetEmployeeModel()
+        [HttpPost]
+        public ViewResult Create(Employee employee)
         {
-            var employee = employeeService.GetLongestServingEmployee();
-            return new EmployeeViewModel
-                       {
-                           HireDate = employee.HireDate,
-                           Name = employee.Name
-                       };
+            return View();
         }
     }
 }
