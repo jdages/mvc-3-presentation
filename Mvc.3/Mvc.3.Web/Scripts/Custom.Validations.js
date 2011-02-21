@@ -2,11 +2,14 @@
 /// <reference path="jquery.validate.unobtrusive.js" />
 /// <reference path="jquery.unobtrusive-ajax.js" />
 
-$.validator.addMethod
-(
-    'startingLetter',
-    function (inboundValue, element, parameters) {
+$().ready(function () {
+    $.validator.addMethod("startwitha", function (value, element, param) {
         return false;
-    },
-    'Invalid starting letter'
-);
+    });
+});
+
+$.validator.unobtrusive.adapters.add("startwitha", ['bonus'], function (options) {
+    options.rules['startwitha'] = '#' + options.params.bonus;
+    options.messages['startwitha'] = options.message;
+    });
+   
