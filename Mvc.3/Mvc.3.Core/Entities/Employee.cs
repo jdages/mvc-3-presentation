@@ -5,34 +5,23 @@ using System.Web.Mvc;
 
 namespace Mvc3.Core.Entities
 {
-    public class Employee
+    public class Employee 
     {
-        [StartsWithA]
+        [MustStartWithA(ErrorMessage = "{0} must start with a")]
         public string Name { get; set; }
         public DateTime HireDate { get; set; }
         public DateTime StartDate { get; set; }
-
-
+        
     }
 
-    public class StartsWithA : ValidationAttribute, IClientValidatable
+    public class MustStartWithA : ValidationAttribute
     {
-        
         public override bool IsValid(object value)
         {
-            return true;
-        }
-
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
-        {
-            var rule = new ModelClientValidationRule();
-            rule.ErrorMessage = "Field can't start with a";
-            rule.ValidationType = "startwitha";
-            rule.ValidationParameters.Add("bonus", "HireDate");
-            yield return rule;
+            var stringValue = (string) value;
+            return stringValue.StartsWith("A") || stringValue.StartsWith("a");
         }
     }
-
     
 }
 

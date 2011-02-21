@@ -11,5 +11,5 @@ $().ready(function () {
 $.validator.unobtrusive.adapters.add("startwitha", ['bonus'], function (options) {
     options.rules['startwitha'] = '#' + options.params.bonus;
     options.messages['startwitha'] = options.message;
-    });
+});
    
