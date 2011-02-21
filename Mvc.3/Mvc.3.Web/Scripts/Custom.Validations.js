@@ -3,13 +3,13 @@
 /// <reference path="jquery.unobtrusive-ajax.js" />
 
 $().ready(function () {
-    $.validator.addMethod("startwitha", function (value, element, param) {
+    $.validator.addMethod("startswitha", function (value, element, param) {
         return value[0] == 'a' || value[0] == 'A';
     });
 });
 
-$.validator.unobtrusive.adapters.add("startwitha", ['bonus'], function (options) {
-    options.rules['startwitha'] = '#' + options.params.bonus;
-    options.messages['startwitha'] = options.message;
+$.validator.unobtrusive.adapters.add("startswitha", ['bonus'], function (options) {
+    options.rules['startswitha'] = '#' + options.params.bonus;
+    options.messages['startswitha'] = options.message;
 });
    

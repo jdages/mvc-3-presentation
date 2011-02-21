@@ -7,10 +7,10 @@ namespace Mvc3.Core.Entities
 {
     public class Employee 
     {
+        [MustStartWithA(ErrorMessage = ("{0} must start with a"))]
         public string Name { get; set; }
         public DateTime HireDate { get; set; }
         public DateTime StartDate { get; set; }
-        
     }
 
     public class MustStartWithA : ValidationAttribute
@@ -20,6 +20,7 @@ namespace Mvc3.Core.Entities
             var stringValue = (string) value;
             return stringValue.StartsWith("A") || stringValue.StartsWith("a");
         }
+
     }
     
 }
