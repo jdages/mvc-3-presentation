@@ -6,7 +6,7 @@ $.validator.addMethod
 (
     'startingLetter',
     function (inboundValue, element, parameters) {
-        return true;
+        return false;
     },
     'Invalid starting letter'
 );
