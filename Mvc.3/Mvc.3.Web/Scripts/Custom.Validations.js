@@ -4,7 +4,7 @@
 
 $().ready(function () {
     $.validator.addMethod("startwitha", function (value, element, param) {
-        return false;
+        return value[0] == 'a' || value[0] == 'A';
     });
 });
 

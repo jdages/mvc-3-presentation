@@ -7,7 +7,7 @@ namespace Mvc3.Core.Entities
 {
     public class Employee
     {
-        [CantStartWithA]
+        [StartsWithA]
         public string Name { get; set; }
         public DateTime HireDate { get; set; }
         public DateTime StartDate { get; set; }
@@ -15,7 +15,7 @@ namespace Mvc3.Core.Entities
 
     }
 
-    public class CantStartWithA : ValidationAttribute, IClientValidatable
+    public class StartsWithA : ValidationAttribute, IClientValidatable
     {
         
         public override bool IsValid(object value)
