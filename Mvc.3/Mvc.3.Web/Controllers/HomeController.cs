@@ -1,3 +1,4 @@
+using System;
 using System.Web.Mvc;
 
 namespace Mvc3.Web.Controllers
@@ -8,5 +9,14 @@ namespace Mvc3.Web.Controllers
         {
             return View();
         }
+
+        public ViewResult WhatTimeIsIt()
+        {
+            return View(DateTime.Now);
+        }
+
+        
     }
+
+
 }
